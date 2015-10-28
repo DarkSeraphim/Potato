@@ -68,7 +68,9 @@ public class Potato implements Tuber {
     public void prepare(String[] condiments) throws NotDeliciousException {
         this.addCondiments(condiments);
         this.listCondiments();
-        if (!this.isDelicious()) throw new NotDeliciousException();
+        if (!this.isDelicious()) {
+            throw new NotDeliciousException();
+        }
     }
 
     /**
@@ -79,7 +81,9 @@ public class Potato implements Tuber {
     public void addCondiments(String... names) throws NotDeliciousException {
         for (String condimentName : names) {
             Condiment condiment = new Condiment(condimentName, true);
-            if (!condiment.isDelicious()) throw new NotDeliciousException();
+            if (!condiment.isDelicious()) {
+                throw new NotDeliciousException();
+            }
             this.getCondiments().add(condiment);
         }
     }
